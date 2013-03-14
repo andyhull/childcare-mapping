@@ -27,7 +27,7 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
                     .attr('href', '#infant')
                     .css('background-image', 'url(http://a.tiles.mapbox.com/v3/marker/pin-l-000000.png)')
                     .bind('click', filterInfant);
-                el.appendChild(linkText);
+                    .text(linkText);
                 container.append(el);
                 var linkText = document.createTextNode("Preschool");
                 var el = $(document.createElement('a'))
@@ -35,7 +35,7 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
                     .attr('href', '#preschool')
                     .css('background-image', 'url(http://a.tiles.mapbox.com/v3/marker/pin-l-000000.png)')
                     .bind('click', filterPreschool);
-                el.appendChild(linkText);
+                    .text(linkText);
                 container.append(el);
 console.log(childcarecenters);
          function filterInfant(e) {
