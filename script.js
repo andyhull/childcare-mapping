@@ -11,7 +11,7 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     childcarecenters.url('data/childcarecenters.geojson', function(features, layer) {
     // All code to be run after loading markers goes in here
     console.log('features '+features);
-    console.log('layer '+featurlayeres);
+    console.log('layer '+layer);
 }
 
     map.setZoomRange(0, 18);
