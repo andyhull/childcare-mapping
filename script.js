@@ -22,7 +22,7 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
         var el = $(document.createElement('a'))
             .addClass('markerfilter')
             .attr('href', '#infant')
-            .css('background-image', 'url(http://a.tiles.mapbox.com/v3/marker/pin-l-'+s+'+000000.png)')
+            .css('background-image', 'url(http://a.tiles.mapbox.com/v3/marker/pin-l-000000.png)')
             .bind('click', filter);
         container.append(el);
     })
