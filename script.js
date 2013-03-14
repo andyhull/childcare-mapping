@@ -20,7 +20,8 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
 
     var container = $('#markerfilters');
     $.each(tilejson.markers.markers(), function(index, m) {
-        var s = m.data.properties['marker-symbol'];
+        console.log(m);
+        var s = m.data.properties['infant'];
 
         if (container.find('[href="#' + s + '"]').length) return;
 
@@ -40,7 +41,7 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
         container.find('a').removeClass('selected');
         var id = $(this).addClass('selected').attr('href').replace('#', '');
         tilejson.markers.filter(function(feature) {
-            return feature.properties['marker-symbol'] == id || id == 'all';
+            return feature.properties['infant'] == id || id == 'all';
         });
         return false;
     }
