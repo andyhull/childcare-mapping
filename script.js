@@ -16,7 +16,7 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     // document.title = tilejson.name;
     // $('h1.map-title').text(tilejson.name);
     // $('p.description').text(tilejson.description);
-console.log(childcarecenters.features());
+console.log(map.features());
 console.log(tilejson);
 console.log(map);
     var container = $('#markerfilters');
