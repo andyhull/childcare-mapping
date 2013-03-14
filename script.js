@@ -27,7 +27,7 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
                     .bind('click', filterInfant);
                 container.append(el);
                 });
-            else if(m.properties['preschool']==1){
+            } else if(m.properties['preschool']==1){
                 var el = $(document.createElement('a'))
                     .addClass('markerfilter')
                     .attr('href', '#preschool')
