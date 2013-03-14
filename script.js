@@ -3,7 +3,7 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     // style, the file must be on the same domain name as the map,
     // or loading will not work due to cross-domain request restrictions
     var childcarecenters = mapbox.markers.layer().url('data/childcarecenters.geojson');
-    mapbox.markers.interaction(markers);
+    mapbox.markers.interaction(childcarecenters);
     map.addLayer(childcarecenters);
 
     map.setZoomRange(0, 18);
