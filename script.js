@@ -17,6 +17,8 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
             // console.log('index '+index);
             // console.log(m);
             // var infant = m.properties['infant'];
+        });
+    });
             if (container.find('[href="#infant"]').length) return;
             if (container.find('[href="#preschool"]').length) return;
             if(m.properties['infant']==1){
@@ -35,8 +37,6 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
                     .bind('click', filterPreschool);
                 container.append(el);
             } 
-        });
-    });
 console.log(childcarecenters);
          function filterInfant(e) {
             container.find('a').removeClass('selected');
