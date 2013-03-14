@@ -21,7 +21,6 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     });
             if (container.find('[href="#infant"]').length) return;
             if (container.find('[href="#preschool"]').length) return;
-            if(m.properties['infant']==1){
                 var el = $(document.createElement('a'))
                     .addClass('markerfilter')
                     .attr('href', '#infant')
@@ -29,14 +28,12 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
                     .bind('click', filterInfant);
                 container.append(el);
 
-            } else if(m.properties['preschool']==1){
                 var el = $(document.createElement('a'))
                     .addClass('markerfilter')
                     .attr('href', '#preschool')
                     .css('background-image', 'url(http://a.tiles.mapbox.com/v3/marker/pin-l-000000.png)')
                     .bind('click', filterPreschool);
                 container.append(el);
-            } 
 console.log(childcarecenters);
          function filterInfant(e) {
             container.find('a').removeClass('selected');
