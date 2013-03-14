@@ -16,7 +16,7 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     $.each(layer, function(index, m){
         console.log('index '+index);
         console.log(m);
-        var s = m.data.properties['infant'];
+        var s = m.properties['infant'];
         if (container.find('[href="#' + s + '"]').length) return;
 
         var el = $(document.createElement('a'))
