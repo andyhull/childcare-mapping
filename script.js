@@ -10,7 +10,7 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     var childcarecenters = mapbox.markers.layer();
     map.addLayer(childcarecenters);
     childcarecenters.url('data/childcarecenters.geojson')
-    map.markers.interaction(childcarecenters);
+    map.interaction(childcarecenters);
     if (container.find('[href="#infant"]').length) return;
     if (container.find('[href="#preschool"]').length) return;
         var el = $(document.createElement('a'))
