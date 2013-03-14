@@ -1,12 +1,14 @@
 // Create and load map
-$('#map').mapbox('andyhull.map-u3mmbcus', function(map, tilejson) {
+$('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     // style, the file must be on the same domain name as the map,
     // or loading will not work due to cross-domain request restrictions
     var markers = mapbox.markers.layer().url('data/childcarecenters.geojson');
     mapbox.markers.interaction(markers);
     map.addLayer(markers);
 
-    map.setZoomRange(0, 15);
+    map.ui.zoomer.add();
+    map.setZoomRange(7, 15);
+    map.setZoom(7);
 
     // Add share control
     mapbox.share().map(map).add();
