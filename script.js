@@ -20,7 +20,7 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
 console.log(childcarecenters);
     var container = $('#markerfilters');
     $.each(childcarecenters.markers(), function(index, m) {
-        console.log(m);
+        console.log("hey"+m);
         var s = m.data.properties['infant'];
 
         if (container.find('[href="#' + s + '"]').length) return;
@@ -34,7 +34,7 @@ console.log(childcarecenters);
     });
 
 
-    $('[href="#all"]').bind('click', filter);
+    $('[href="#all"]').bind('click', filter); 
 
 
     function filter(e) {
