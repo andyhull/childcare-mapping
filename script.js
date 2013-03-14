@@ -6,7 +6,7 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     mapbox.markers.interaction(markers);
     map.addLayer(markers);
 
-    map.setZoomRange(0, 15);
+    map.setZoomRange(0, 18);
     map.centerzoom({lat:37.74110000000002, lon:-122.40589999999996}, 12);
 
     // Add share control
