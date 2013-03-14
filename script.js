@@ -6,6 +6,7 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     // mapbox.markers.interaction(childcarecenters);
     // map.addLayer(childcarecenters);
 
+    var container = $('#markerfilters');
     var childcarecenters = mapbox.markers.layer();
     map.addLayer(childcarecenters);
     childcarecenters.url('data/childcarecenters.geojson', function(features, layer) {
@@ -15,6 +16,15 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     $.each(layer, function(index, m){
         console.log('index '+index);
         console.log(m);
+        var s = m.data.properties['infant'];
+        if (container.find('[href="#' + s + '"]').length) return;
+
+        var el = $(document.createElement('a'))
+            .addClass('markerfilter')
+            .attr('href', '#' + s)
+            .css('background-image', 'url(http://a.tiles.mapbox.com/v3/marker/pin-l-'+s+'+000000.png)')
+            .bind('click', filter);
+        container.append(el);
     })
     });
 
@@ -24,27 +34,19 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     // Add share control
     // mapbox.share().map(map).add();
 
-    // // Set title and description from tilejson
-    // document.title = tilejson.name;
-    // $('h1.map-title').text(tilejson.name);
-    // $('p.description').text(tilejson.description);
-// console.log(map.features());
-// console.log(tilejson);
-// console.log(map);
-    var container = $('#markerfilters');
-    $.each(childcarecenters.markers(), function(index, m) {
-        console.log("hey"+m);
-        var s = m.data.properties['infant'];
+    // $.each(childcarecenters.markers(), function(index, m) {
+    //     console.log("hey"+m);
+    //     var s = m.data.properties['infant'];
 
-        if (container.find('[href="#' + s + '"]').length) return;
+    //     if (container.find('[href="#' + s + '"]').length) return;
 
-        var el = $(document.createElement('a'))
-            .addClass('markerfilter')
-            .attr('href', '#' + s)
-            .css('background-image', 'url(http://a.tiles.mapbox.com/v3/marker/pin-l-'+s+'+000000.png)')
-            .bind('click', filter);
-        container.append(el);
-    });
+    //     var el = $(document.createElement('a'))
+    //         .addClass('markerfilter')
+    //         .attr('href', '#' + s)
+    //         .css('background-image', 'url(http://a.tiles.mapbox.com/v3/marker/pin-l-'+s+'+000000.png)')
+    //         .bind('click', filter);
+    //     container.append(el);
+    // });
 
 
     $('[href="#all"]').bind('click', filter); 
