@@ -12,29 +12,29 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     childcarecenters.url('data/childcarecenters.geojson', function(features, layer) {
     // All code to be run after loading markers goes in here
     // console.log('features '+features);
-    $.each(layer, function(index, m){
-    //get all the individual geojson records
-        console.log('index '+index);
-        console.log(m);
-        // var infant = m.properties['infant'];
-        if (container.find('[href="#infant"]').length) return;
+        $.each(layer, function(index, m){
+        //get all the individual geojson records
+            // console.log('index '+index);
+            // console.log(m);
+            // var infant = m.properties['infant'];
+            if (container.find('[href="#infant"]').length) return;
 
-        var el = $(document.createElement('a'))
-            .addClass('markerfilter')
-            .attr('href', '#infant')
-            .css('background-image', 'url(http://a.tiles.mapbox.com/v3/marker/pin-l-000000.png)')
-            .bind('click', filterInfant);
-        container.append(el);
-
-         function filterInfant(e) {
-        container.find('a').removeClass('selected');
-        var id = $(this).addClass('selected').attr('href').replace('#', '');
-        childcarecenters.markers.filter(function(feature) {
-            return feature.properties['infant'] == 1 || id == 'all';
+            var el = $(document.createElement('a'))
+                .addClass('markerfilter')
+                .attr('href', '#infant')
+                .css('background-image', 'url(http://a.tiles.mapbox.com/v3/marker/pin-l-000000.png)')
+                .bind('click', filterInfant);
+            container.append(el);
         });
-        return false;
-    }
-    })
+console.log(this);
+         function filterInfant(e) {
+            container.find('a').removeClass('selected');
+            var id = $(this).addClass('selected').attr('href').replace('#', '');
+            this.markers.filter(function(feature) {
+                return feature.properties['infant'] == 1 || id == 'all';
+            });
+            return false;
+        }
     });
 
     map.setZoomRange(0, 18);
