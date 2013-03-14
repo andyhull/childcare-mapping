@@ -1,5 +1,5 @@
 // Create and load map
-$('#map').mapbox('examples.map-8j8lv902', function(map, tilejson) {
+$('#map').mapbox('andyhull.map-u3mmbcus', function(map, tilejson) {
 
     map.setZoomRange(0, 15);
 
