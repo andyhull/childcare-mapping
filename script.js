@@ -10,10 +10,11 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     var childcarecenters = mapbox.markers.layer();
     map.addLayer(childcarecenters);
     childcarecenters.url('data/childcarecenters.geojson')
+    //create the tooltips here
     mapbox.markers.interaction(childcarecenters).formatter(function(feature) {
             var div = document.createElement('div');
-            var title = div.appendChild(document.createElement('h1'));
-            title.innerHTML = feature.properties["address"];
+            var title = div.appendChild(document.createElement('h3'));
+            title.innerHTML = feature.properties["name"];
             return div;
         });
     if (container.find('[href="#infant"]').length) return;
