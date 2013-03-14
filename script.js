@@ -19,7 +19,7 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
 
 
     var container = $('#markerfilters');
-    $.each(tilejson.markers.markers(), function(index, m) {
+    $.each(markers.markers(), function(index, m) {
         console.log(m);
         var s = m.data.properties['infant'];
 
