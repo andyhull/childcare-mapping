@@ -2,8 +2,16 @@
 $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     // style, the file must be on the same domain name as the map,
     // or loading will not work due to cross-domain request restrictions
-    var childcarecenters = mapbox.markers.layer().url('data/childcarecenters.geojson');
+    // var childcarecenters = mapbox.markers.layer().url('data/childcarecenters.geojson');
     // mapbox.markers.interaction(childcarecenters);
+    // map.addLayer(childcarecenters);
+
+    var childcarecenters = mapbox.markers.layer();
+    childcarecenters.url('data/childcarecenters.geojson', function(features, layer) {
+    // All code to be run after loading markers goes in here
+    console.log('features '+features);
+    console.log('layer '+featurlayeres);
+}
     map.addLayer(childcarecenters);
 
     map.setZoomRange(0, 18);
@@ -16,9 +24,9 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     // document.title = tilejson.name;
     // $('h1.map-title').text(tilejson.name);
     // $('p.description').text(tilejson.description);
-console.log(map.features());
-console.log(tilejson);
-console.log(map);
+// console.log(map.features());
+// console.log(tilejson);
+// console.log(map);
     var container = $('#markerfilters');
     $.each(childcarecenters.markers(), function(index, m) {
         console.log("hey"+m);
