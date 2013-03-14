@@ -3,21 +3,21 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     // style, the file must be on the same domain name as the map,
     // or loading will not work due to cross-domain request restrictions
     var childcarecenters = mapbox.markers.layer().url('data/childcarecenters.geojson');
-    mapbox.markers.interaction(childcarecenters);
+    // mapbox.markers.interaction(childcarecenters);
     map.addLayer(childcarecenters);
 
     map.setZoomRange(0, 18);
     map.centerzoom({lat:37.74110000000002, lon:-122.40589999999996}, 12);
 
     // Add share control
-    mapbox.share().map(map).add();
+    // mapbox.share().map(map).add();
 
-    // Set title and description from tilejson
-    document.title = tilejson.name;
-    $('h1.map-title').text(tilejson.name);
-    $('p.description').text(tilejson.description);
+    // // Set title and description from tilejson
+    // document.title = tilejson.name;
+    // $('h1.map-title').text(tilejson.name);
+    // $('p.description').text(tilejson.description);
 
-console.log(childcarecenters);
+console.log(tilejson);
 console.log(map);
     var container = $('#markerfilters');
     $.each(childcarecenters.markers(), function(index, m) {
