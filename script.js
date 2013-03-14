@@ -16,12 +16,12 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     //get all the individual geojson records
         console.log('index '+index);
         console.log(m);
-        var s = m.properties['infant'];
-        if (container.find('[href="#' + s + '"]').length) return;
+        // var infant = m.properties['infant'];
+        if (container.find('[href="#infant"]').length) return;
 
         var el = $(document.createElement('a'))
             .addClass('markerfilter')
-            .attr('href', '#' + s)
+            .attr('href', '#infant')
             .css('background-image', 'url(http://a.tiles.mapbox.com/v3/marker/pin-l-'+s+'+000000.png)')
             .bind('click', filter);
         container.append(el);
@@ -29,6 +29,18 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     });
 
     map.setZoomRange(0, 18);
+
+    $('[href="#all"]').bind('click', filter); 
+
+
+    function filter(e) {
+        container.find('a').removeClass('selected');
+        var id = $(this).addClass('selected').attr('href').replace('#', '');
+        childcarecenters.markers.filter(function(feature) {
+            return feature.properties['infant'] == 1 || id == 'all';
+        });
+        return false;
+    }
     map.centerzoom({lat:37.74110000000002, lon:-122.40589999999996}, 12);
 
     // Add share control
@@ -48,16 +60,4 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     //     container.append(el);
     // });
 
-
-    $('[href="#all"]').bind('click', filter); 
-
-
-    function filter(e) {
-        container.find('a').removeClass('selected');
-        var id = $(this).addClass('selected').attr('href').replace('#', '');
-        tilejson.markers.filter(function(feature) {
-            return feature.properties['infant'] == id || id == 'all';
-        });
-        return false;
-    }
 });
