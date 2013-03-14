@@ -18,7 +18,7 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     $('p.description').text(tilejson.description);
 
 console.log(childcarecenters);
-console.log(childcarecenters.markers());
+console.log(mapbox.markers);
     var container = $('#markerfilters');
     $.each(childcarecenters.markers(), function(index, m) {
         console.log("hey"+m);
