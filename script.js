@@ -31,7 +31,7 @@ console.log(childcarecenters);
          function filterInfant(e) {
             container.find('a').removeClass('selected');
             var id = $(this).addClass('selected').attr('href').replace('#', '');
-            childcarecenters.markers.filter(function(feature) {
+            childcarecenters.filter(function(feature) {
                 return feature.properties['infant'] == 1 || id == 'all';
             });
             return false;
