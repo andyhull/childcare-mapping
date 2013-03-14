@@ -25,7 +25,6 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
                 .css('background-image', 'url(http://a.tiles.mapbox.com/v3/marker/pin-l-000000.png)')
                 .bind('click', filterInfant);
             container.append(el);
-        });
 console.log(this);
          function filterInfant(e) {
             container.find('a').removeClass('selected');
@@ -35,6 +34,7 @@ console.log(this);
             });
             return false;
         }
+        });
     });
 
     map.setZoomRange(0, 18);
