@@ -18,14 +18,25 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
             // console.log(m);
             // var infant = m.properties['infant'];
             if (container.find('[href="#infant"]').length) return;
-
-            var el = $(document.createElement('a'))
-                .addClass('markerfilter')
-                .attr('href', '#infant')
-                .css('background-image', 'url(http://a.tiles.mapbox.com/v3/marker/pin-l-000000.png)')
-                .bind('click', filterInfant);
-            container.append(el);
-        });
+            if (container.find('[href="#preschool"]').length) return;
+            if(m.properties['infant']==1){
+                var el = $(document.createElement('a'))
+                    .addClass('markerfilter')
+                    .attr('href', '#infant')
+                    .css('background-image', 'url(http://a.tiles.mapbox.com/v3/marker/pin-l-000000.png)')
+                    .bind('click', filterInfant);
+                container.append(el);
+                });
+            else if(m.properties['preschool']==1){
+                var el = $(document.createElement('a'))
+                    .addClass('markerfilter')
+                    .attr('href', '#preschool')
+                    .css('background-image', 'url(http://a.tiles.mapbox.com/v3/marker/pin-l-000000.png)')
+                    .bind('click', filterPreschool);
+                container.append(el);
+                });
+            } 
+            }
     });
 console.log(childcarecenters);
          function filterInfant(e) {
@@ -33,6 +44,14 @@ console.log(childcarecenters);
             var id = $(this).addClass('selected').attr('href').replace('#', '');
             childcarecenters.filter(function(feature) {
                 return feature.properties['infant'] == 1 || id == 'all';
+            });
+            return false;
+        }
+        function filterPreschool(e) {
+            container.find('a').removeClass('selected');
+            var id = $(this).addClass('selected').attr('href').replace('#', '');
+            childcarecenters.filter(function(feature) {
+                return feature.properties['preschool'] == 1 || id == 'all';
             });
             return false;
         }
@@ -45,7 +64,7 @@ console.log(childcarecenters);
     function filter(e) {
         container.find('a').removeClass('selected');
         var id = $(this).addClass('selected').attr('href').replace('#', '');
-        childcarecenters.markers.filter(function(feature) {
+        childcarecenters.filter(function(feature) {
             return feature.properties['infant'] == 1 || id == 'all';
         });
         return false;
