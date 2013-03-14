@@ -23,8 +23,17 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
             .addClass('markerfilter')
             .attr('href', '#infant')
             .css('background-image', 'url(http://a.tiles.mapbox.com/v3/marker/pin-l-000000.png)')
-            .bind('click', filter);
+            .bind('click', filterInfant);
         container.append(el);
+
+         function filterInfant(e) {
+        container.find('a').removeClass('selected');
+        var id = $(this).addClass('selected').attr('href').replace('#', '');
+        childcarecenters.markers.filter(function(feature) {
+            return feature.properties['infant'] == 1 || id == 'all';
+        });
+        return false;
+    }
     })
     });
 
