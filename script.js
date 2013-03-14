@@ -12,8 +12,8 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     childcarecenters.url('data/childcarecenters.geojson', function(features, layer) {
     // All code to be run after loading markers goes in here
     // console.log('features '+features);
-    console.log(layer);
     $.each(layer, function(index, m){
+    //get all the individual geojson records
         console.log('index '+index);
         console.log(m);
         var s = m.properties['infant'];
