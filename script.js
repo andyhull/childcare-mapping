@@ -12,7 +12,7 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     // All code to be run after loading markers goes in here
     console.log('features '+features);
     console.log('layer '+layer);
-}
+    });
 
     map.setZoomRange(0, 18);
     map.centerzoom({lat:37.74110000000002, lon:-122.40589999999996}, 12);
