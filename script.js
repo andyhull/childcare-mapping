@@ -10,8 +10,11 @@ $('#map').mapbox('andyhull.map-qflr4pt1', function(map, tilejson) {
     map.addLayer(childcarecenters);
     childcarecenters.url('data/childcarecenters.geojson', function(features, layer) {
     // All code to be run after loading markers goes in here
-    console.log('features '+features);
-    console.log('layer '+layer());
+    // console.log('features '+features);
+    $.each(layer, function(index, m){
+        console.log('index '+index);
+        console.log('m '+ m);
+    })
     });
 
     map.setZoomRange(0, 18);
